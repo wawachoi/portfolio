@@ -104,6 +104,14 @@
     }
     
     @font-face {
+      font-family: 'Gilroy-RegularItalic';
+      src: url('./fonts/Gilroy-RegularItalic.ttf') format('truetype');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+    
+    @font-face {
       font-family: 'HanYiCuYuanJian-1';
       src: url('./fonts/HanYiCuYuanJian-1.ttf') format('truetype');
       font-weight: normal;
@@ -309,7 +317,7 @@
         The Problem
       </h2>
       <!-- Problem Subheading above image and text -->
-      <h3 class="text-3xl font-bold text-dark" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif; font-size: 28px; margin-bottom: 60px;">
+      <h3 class="text-3xl font-bold text-dark" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif; font-size: 28px; margin-bottom: 60px; margin-left: calc(352px + 48px);">
         What does <span style="font-family: 'Gilroy-BoldItalic', 'Gilroy', Arial, sans-serif; color: #B3261E;">social anxiety</span> look like in the digital age?
       </h3>
       
@@ -322,12 +330,13 @@
 
         <!-- Right: Problem Text Content -->
         <div class="flex-1">
-          <div class="space-y-6 mb-8">
+          <div class="space-y-6 mb-8" style="margin-top: 12px;">
             <p class="text-xl text-dark leading-relaxed" style="font-size: 20px;">
-              Texting should be simple — but for many, it isn't. Socially anxious users often overthink, hesitate, or avoid texting altogether.
+              Texting should be simple — but for many, it isn't.<br>
+              Socially anxious users often overthink, hesitate, or avoid texting altogether.
             </p>
 
-            <div class="space-y-3" style="max-width: 620px; margin: 36px auto;">
+            <div style="max-width: 620px; margin: 36px auto; display: flex; flex-direction: column; gap: 28px;">
               <p class="quote-text text-red-700" style="text-align: left; font-size: 20px; font-family: 'Gilroy-BoldItalic', 'Gilroy', Arial, sans-serif;">"I rewrote this message five times."</p>
               <p class="quote-text text-red-700" style="text-align: left; font-size: 20px; font-family: 'Gilroy-BoldItalic', 'Gilroy', Arial, sans-serif;">"I don't want to sound rude."</p>
               <p class="quote-text text-red-700" style="text-align: left; font-size: 20px; font-family: 'Gilroy-BoldItalic', 'Gilroy', Arial, sans-serif;">"Can someone just tell me what to say?"</p>
@@ -348,14 +357,12 @@
         Target User
       </h2>
       
-      <div class="flex flex-col gap-8">
+      <div class="flex flex-col" style="gap: 60px;">
         <!-- User Persona 1: Yan -->
         <div class="flex items-start" style="gap: 40px;">
           <!-- Left: Avatar + caption (outside container) -->
           <div style="width: 150px;">
-            <div class="project-image-placeholder" style="width: 150px; height: 145px;">
-              <span>用户头像</span>
-            </div>
+            <img src="./images/happy-ripple-target-user-yan.png" alt="Yan avatar" style="width: 150px; height: 145px; object-fit: cover; border-radius: 16px;">
             <div class="mt-2 text-sm text-dark">
               <div>Yan (fictional)</div>
               <div>University Student</div>
@@ -363,10 +370,10 @@
           </div>
           <!-- Right: Quote on top + Bordered info below -->
           <div class="flex-1">
-            <p class="quote-text text-dark mb-4" style="font-family: 'Gilroy-BoldItalic', 'Gilroy', Arial, sans-serif; font-size: 20px;">"I rewrote my reply to my professor again and again, worried it might sound disrespectful."</p>
+            <p class="quote-text text-dark mb-4" style="font-family: 'Gilroy-RegularItalic', 'Gilroy', Arial, sans-serif; font-size: 24px;">"I rewrote my reply to my professor again and again, worried it might sound disrespectful."</p>
             <div class="p-6" style="border: 1px solid #212121; border-radius: 16px; background: transparent;">
               <div class="space-y-2">
-                <p class="text-xl text-dark"><strong>Typical Scenario:</strong> Replying to professors or advisors about assignments, research, or schedule changes</p>
+                <p class="text-xl text-dark"><strong>Typical Scenario:</strong> <span style="font-family: 'Gilroy-SemiBoldItalic', 'Gilroy', Arial, sans-serif;">Replying to professors or advisors</span> about assignments, research, or schedule changes</p>
                 <p class="text-xl text-dark"><strong>Pain Point:</strong> Struggles to balance formality and clarity; fears being misunderstood or judged by authority</p>
                 <p class="text-xl text-dark"><strong>Goal:</strong> Communicate politely and academically, without overthinking every word</p>
               </div>
@@ -378,20 +385,18 @@
         <div class="flex items-start" style="gap: 40px;">
           <!-- Left: Avatar + caption (outside container) -->
           <div style="width: 150px;">
-            <div class="project-image-placeholder" style="width: 150px; height: 145px;">
-              <span>用户头像</span>
-            </div>
+            <img src="./images/happy-ripple-target-user-lin.png" alt="Lin avatar" style="width: 150px; height: 145px; object-fit: cover; border-radius: 16px;">
             <div class="mt-2 text-sm text-dark">
               <div>Lin (fictional)</div>
-              <div>Junior Marketing Assistant</div>
+              <div>Product Manager</div>
             </div>
           </div>
           <!-- Right: Quote on top + Bordered info below -->
           <div class="flex-1">
-            <p class="quote-text text-dark mb-4" style="font-family: 'Gilroy-BoldItalic', 'Gilroy', Arial, sans-serif; font-size: 20px;">"I want to ask for leave, but I'm terrified of saying it wrong."</p>
+            <p class="quote-text text-dark mb-4" style="font-family: 'Gilroy-RegularItalic', 'Gilroy', Arial, sans-serif; font-size: 24px;">"I want to ask for leave, but I'm terrified of saying it wrong."</p>
             <div class="p-6" style="border: 1px solid #212121; border-radius: 16px; background: transparent;">
               <div class="space-y-2">
-                <p class="text-xl text-dark"><strong>Typical Scenario:</strong> Asking for leave, requesting schedule changes, or even resigning</p>
+                <p class="text-xl text-dark"><strong>Typical Scenario:</strong> <span style="font-family: 'Gilroy-SemiBoldItalic', 'Gilroy', Arial, sans-serif;">Asking for leave, requesting schedule changes, or even resigning</span></p>
                 <p class="text-xl text-dark"><strong>Pain Point:</strong> Overthinking tone, fear of leaving a bad impression on managers</p>
                 <p class="text-xl text-dark"><strong>Goal:</strong> Express requests clearly without anxiety</p>
               </div>
@@ -403,9 +408,7 @@
         <div class="flex items-start" style="gap: 40px;">
           <!-- Left: Avatar + caption (outside container) -->
           <div style="width: 150px;">
-            <div class="project-image-placeholder" style="width: 150px; height: 145px;">
-              <span>用户头像</span>
-            </div>
+            <img src="./images/happy-ripple-target-user-mei.png" alt="Mei avatar" style="width: 150px; height: 145px; object-fit: cover; border-radius: 16px;">
             <div class="mt-2 text-sm text-dark">
               <div>Mei (fictional)</div>
               <div>University Student</div>
@@ -413,10 +416,10 @@
           </div>
           <!-- Right: Quote on top + Bordered info below -->
           <div class="flex-1">
-            <p class="quote-text text-dark mb-4" style="font-family: 'Gilroy-BoldItalic', 'Gilroy', Arial, sans-serif; font-size: 20px;">"I want to reply to my parents with care, but I never know the right words."</p>
+            <p class="quote-text text-dark mb-4" style="font-family: 'Gilroy-RegularItalic', 'Gilroy', Arial, sans-serif; font-size: 24px;">"I want to reply to my parents with care, but I never know the right words."</p>
             <div class="p-6" style="border: 1px solid #212121; border-radius: 16px; background: transparent;">
               <div class="space-y-2">
-                <p class="text-xl text-dark"><strong>Typical Scenario:</strong> Replying to greetings, blessings, or casual group chats</p>
+                <p class="text-xl text-dark"><strong>Typical Scenario:</strong> <span style="font-family: 'Gilroy-SemiBoldItalic', 'Gilroy', Arial, sans-serif;">Replying to greetings, blessings, or casual group chats</span></p>
                 <p class="text-xl text-dark"><strong>Pain Point:</strong> Feels guilty about sounding too cold or distant</p>
                 <p class="text-xl text-dark"><strong>Goal:</strong> Balancing warmth and brevity; afraid of sounding dismissive or overly formal</p>
               </div>
@@ -424,24 +427,22 @@
           </div>
         </div>
          
-         <!-- User Persona 4: Mei (Partner) -->
+         <!-- User Persona 4: Wu (Partner) -->
         <div class="flex items-start" style="gap: 40px;">
           <!-- Left: Avatar + caption (outside container) -->
           <div style="width: 150px;">
-            <div class="project-image-placeholder" style="width: 150px; height: 145px;">
-              <span>用户头像</span>
-            </div>
+            <img src="./images/happy-ripple-target-user-wu.png" alt="Wu avatar" style="width: 150px; height: 145px; object-fit: cover; border-radius: 16px;">
             <div class="mt-2 text-sm text-dark">
-              <div>Mei (fictional)</div>
-              <div>University Student</div>
+              <div>Wu (fictional)</div>
+              <div>Software Engineer</div>
             </div>
           </div>
           <!-- Right: Quote on top + Bordered info below -->
           <div class="flex-1">
-            <p class="quote-text text-dark mb-4" style="font-family: 'Gilroy-BoldItalic', 'Gilroy', Arial, sans-serif; font-size: 20px;">"I know I should apologize, but every draft sounds either too cold or too dramatic."</p>
+            <p class="quote-text text-dark mb-4" style="font-family: 'Gilroy-RegularItalic', 'Gilroy', Arial, sans-serif; font-size: 24px;">"I know I should apologize, but every draft sounds either too cold or too dramatic."</p>
             <div class="p-6" style="border: 1px solid #212121; border-radius: 16px; background: transparent;">
               <div class="space-y-2">
-                <p class="text-xl text-dark"><strong>Typical Scenario:</strong> Small fights, misunderstandings, or cold silence after emotional conversations</p>
+                <p class="text-xl text-dark"><strong>Typical Scenario:</strong> <span style="font-family: 'Gilroy-SemiBoldItalic', 'Gilroy', Arial, sans-serif;">Small fights, misunderstandings, or cold silence after emotional conversations</span></p>
                 <p class="text-xl text-dark"><strong>Pain Point:</strong> Struggles to find the right tone—afraid of sounding insincere if too short, but also fears overwhelming the partner with long explanations.</p>
                 <p class="text-xl text-dark"><strong>Goal:</strong> Express genuine apology in a natural, caring way that helps ease tension and rebuild closeness.</p>
               </div>
@@ -462,19 +463,34 @@
         </div>
         
         <div class="grid grid-cols-1 gap-12">
-          <div class="space-y-6">
-            <p class="text-xl text-dark leading-relaxed">
-              Users don't just struggle with "what to say," they struggle with how to say it. → A message to a boss needs to be formal and respectful, while a reply to a friend can be casual and warm.
-            </p>
-            <p class="text-xl text-dark leading-relaxed">
-              Socially anxious users fear sounding "wrong" or "inappropriate." → Clear tone guidance to reduce hesitation and build confidence. → Low-effort, instant generation to ease overthinking.
-            </p>
-            <p class="text-xl text-dark leading-relaxed">
-              One-size-fits-all responses don't work. → Context-aware replies that adapt to different relationships (boss, friend, family) and tone (formal / casual / playful).
-            </p>
-            <p class="text-xl text-dark leading-relaxed">
-              Generic AI replies often feel too long, too stiff, or "not me." → Editable, customizable outputs that still "sound like me"
-            </p>
+          <div>
+            <ol style="padding-left: 12px; margin: 0; list-style: decimal;">
+              <li style="margin-bottom: 16px;">
+                <div class="text-xl text-dark leading-relaxed">
+                  Users don't just struggle with "what to say," they struggle with how to say it.<br>
+                  → A message to a boss needs to be formal and respectful, while a reply to a friend can be casual and warm.
+                </div>
+              </li>
+              <li style="margin-bottom: 16px;">
+                <div class="text-xl text-dark leading-relaxed">
+                  Socially anxious users fear sounding "wrong" or "inappropriate."<br>
+                  → Clear tone guidance to reduce hesitation and build confidence.<br>
+                  → Low‑effort, instant generation to ease overthinking.
+                </div>
+              </li>
+              <li style="margin-bottom: 16px;">
+                <div class="text-xl text-dark leading-relaxed">
+                  One‑size‑fits‑all responses don't work.<br>
+                  → Context‑aware replies that adapt to different relationships (boss, friend, family) and tone (formal / casual / playful).
+                </div>
+              </li>
+              <li>
+                <div class="text-xl text-dark leading-relaxed">
+                  Generic AI replies often feel too long, too stiff, or "not me."<br>
+                  → Editable, customizable outputs that still "sound like me"
+                </div>
+              </li>
+            </ol>
           </div>
         </div>
       </div>
