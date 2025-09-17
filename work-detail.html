@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Detail - Eve Peng · 2025 Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#8F33FF',
+            accent: '#FFC940',
+            lavender: '#E6E6FA',
+            beige: '#F5F5DC',
+            dark: '#212121'
+          },
+          fontFamily: {
+            'alibaba-black': ['Inter', 'sans-serif'],
+            'alibaba-thin': ['Inter', 'sans-serif'], 
+            'alibaba-heavy': ['Inter', 'sans-serif'],
+            'pingfang': ['Inter', 'sans-serif']
+          }
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+  
+  <style>
+    .hero-image {
+      background: linear-gradient(135deg, #FF8A46, #17987A, #5692F8);
+      border-radius: 24px;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 96px;
+    }
+    
+    .process-step {
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: transform 0.3s ease;
+    }
+    
+    .process-step:hover {
+      transform: translateY(-4px);
+    }
+    
+    .tag {
+      background: linear-gradient(135deg, #8F33FF, #5692F8);
+      color: white;
+      font-size: 14px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-weight: 500;
+    }
+    
+    .outcome-card {
+      background: linear-gradient(135deg, rgba(143, 51, 255, 0.1), rgba(86, 146, 248, 0.1));
+      border: 2px solid rgba(143, 51, 255, 0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .outcome-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(143, 51, 255, 0.4);
+    }
+    
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: white;
+      border: 2px solid #8F33FF;
+      border-radius: 999px;
+      color: #8F33FF;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .back-button:hover {
+      background: #8F33FF;
+      color: white;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-3 bg-white dark:bg-gray-800 rounded-full px-4 py-2 border border-gray-200 dark:border-gray-700">
+          <div class="w-5 h-5 bg-black dark:bg-white rounded-full relative">
+            <div class="absolute top-0.5 right-0.5 w-0.5 h-0.5 bg-white dark:bg-black rounded-full"></div>
+          </div>
+          <span class="text-base font-normal text-dark dark:text-white">Eve PENG</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white dark:bg-gray-800 rounded-full px-4 py-2 border border-gray-200 dark:border-gray-700">
+          <div class="w-5 h-5 bg-black dark:bg-white rounded-full relative">
+            <div class="absolute top-0.5 right-0.5 w-0.5 h-0.5 bg-white dark:bg-black rounded-full"></div>
+          </div>
+          <span class="text-base font-normal text-dark dark:text-white">2025 Portfolio</span>
+        </div>
+      </div>
+      
+      <!-- Navigation -->
+      <nav class="flex items-center gap-4">
+        <a href="index.html" class="px-6 py-2 text-dark dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">Home</a>
+        <a href="work.html" class="px-6 py-2 text-dark dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">Work</a>
+        <a href="about.html" class="px-6 py-2 text-dark dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">About</a>
+        
+        <!-- Dark Mode Toggle -->
+        <button id="darkModeToggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+          <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-24 pb-16">
+    <!-- Back Navigation -->
+    <section class="max-w-7xl mx-auto px-4 mb-8">
+      <a href="work.html" class="back-button">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back to Work
+      </a>
+    </section>
+
+    <!-- Project Hero -->
+    <section class="max-w-7xl mx-auto px-4 mb-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Project Info -->
+        <div class="space-y-6">
+          <div class="flex flex-wrap gap-2" id="projectTags">
+            <span class="tag">#UI/UX Design</span>
+            <span class="tag">#Sustainability</span>
+          </div>
+          
+          <h1 class="text-5xl font-bold text-dark dark:text-white" id="projectTitle">
+            EcoTracker App
+          </h1>
+          
+          <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed" id="projectDescription">
+            A sustainable lifestyle tracking app that gamifies eco-friendly habits and connects users with environmental impact data to create meaningful behavioral change.
+          </p>
+          
+          <!-- Project Details -->
+          <div class="grid grid-cols-2 gap-6 pt-6">
+            <div>
+              <h3 class="font-semibold text-dark dark:text-white mb-2">Role</h3>
+              <p class="text-gray-600 dark:text-gray-300" id="projectRole">Lead UX/UI Designer</p>
+            </div>
+            <div>
+              <h3 class="font-semibold text-dark dark:text-white mb-2">Duration</h3>
+              <p class="text-gray-600 dark:text-gray-300" id="projectDuration">3 months</p>
+            </div>
+            <div>
+              <h3 class="font-semibold text-dark dark:text-white mb-2">Tools</h3>
+              <p class="text-gray-600 dark:text-gray-300" id="projectTools">Figma, Principle, Adobe Creative Suite</p>
+            </div>
+            <div>
+              <h3 class="font-semibold text-dark dark:text-white mb-2">Team</h3>
+              <p class="text-gray-600 dark:text-gray-300" id="projectTeam">2 Designers, 3 Developers</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Hero Image -->
+        <div class="hero-image" id="projectHeroImage">
+          <span>🌱</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section class="max-w-7xl mx-auto px-4 mb-16">
+      <div class="bg-white dark:bg-gray-800 rounded-3xl p-12 shadow-lg">
+        <h2 class="text-4xl font-bold text-dark dark:text-white mb-6">The Challenge</h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed" id="problemStatement">
+          Many people want to live more sustainably but struggle with tracking their environmental impact and maintaining eco-friendly habits. Existing solutions are either too complex, lack engagement, or don't provide actionable insights that motivate long-term behavioral change.
+        </p>
+      </div>
+    </section>
+
+    <!-- Design Process -->
+    <section class="max-w-7xl mx-auto px-4 mb-16">
+      <h2 class="text-4xl font-bold text-dark dark:text-white text-center mb-12">Design Process</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Research -->
+        <div class="process-step rounded-2xl p-8 bg-white dark:bg-gray-800 shadow-lg text-center">
+          <div class="text-4xl mb-4">🔍</div>
+          <h3 class="text-xl font-bold text-dark dark:text-white mb-4">Research</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            User interviews, market analysis, and behavioral research to understand sustainability challenges.
+          </p>
+        </div>
+
+        <!-- Define -->
+        <div class="process-step rounded-2xl p-8 bg-white dark:bg-gray-800 shadow-lg text-center">
+          <div class="text-4xl mb-4">🎯</div>
+          <h3 class="text-xl font-bold text-dark dark:text-white mb-4">Define</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Problem definition, user personas, and journey mapping to identify key pain points.
+          </p>
+        </div>
+
+        <!-- Ideate -->
+        <div class="process-step rounded-2xl p-8 bg-white dark:bg-gray-800 shadow-lg text-center">
+          <div class="text-4xl mb-4">💡</div>
+          <h3 class="text-xl font-bold text-dark dark:text-white mb-4">Ideate</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Brainstorming sessions, concept development, and feature prioritization workshops.
+          </p>
+        </div>
+
+        <!-- Prototype -->
+        <div class="process-step rounded-2xl p-8 bg-white dark:bg-gray-800 shadow-lg text-center">
+          <div class="text-4xl mb-4">🛠️</div>
+          <h3 class="text-xl font-bold text-dark dark:text-white mb-4">Prototype</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Wireframing, interactive prototyping, and usability testing iterations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="max-w-7xl mx-auto px-4 mb-16">
+      <h2 class="text-4xl font-bold text-dark dark:text-white text-center mb-12">The Solution</h2>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <h3 class="text-3xl font-bold text-dark dark:text-white">Key Features</h3>
+          <ul class="space-y-4 text-lg text-gray-600 dark:text-gray-300">
+            <li class="flex items-start gap-3">
+              <span class="text-primary text-2xl">✓</span>
+              <span><strong>Habit Tracking:</strong> Simple, visual tracking of daily eco-friendly actions with streak counters and progress visualization.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-primary text-2xl">✓</span>
+              <span><strong>Impact Calculator:</strong> Real-time calculation and visualization of environmental impact reduction.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-primary text-2xl">✓</span>
+              <span><strong>Gamification:</strong> Achievement system, leaderboards, and challenges to maintain engagement.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-primary text-2xl">✓</span>
+              <span><strong>Community:</strong> Social features to connect with like-minded individuals and share progress.</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl p-8 text-center">
+          <div class="text-6xl mb-4">📱</div>
+          <p class="text-lg text-gray-600 dark:text-gray-300">
+            Interactive prototype and detailed mockups showcase the complete user experience flow.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outcomes -->
+    <section class="max-w-7xl mx-auto px-4 mb-16">
+      <h2 class="text-4xl font-bold text-dark dark:text-white text-center mb-12">Results & Impact</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="outcome-card">
+          <div class="text-4xl mb-4">📈</div>
+          <h3 class="text-2xl font-bold text-dark dark:text-white mb-2">85%</h3>
+          <p class="text-gray-600 dark:text-gray-300">Increase in sustainable habit adoption among test users</p>
+        </div>
+        
+        <div class="outcome-card">
+          <div class="text-4xl mb-4">⭐</div>
+          <h3 class="text-2xl font-bold text-dark dark:text-white mb-2">4.8/5</h3>
+          <p class="text-gray-600 dark:text-gray-300">User satisfaction rating in usability testing</p>
+        </div>
+        
+        <div class="outcome-card">
+          <div class="text-4xl mb-4">🏆</div>
+          <h3 class="text-2xl font-bold text-dark dark:text-white mb-2">Award</h3>
+          <p class="text-gray-600 dark:text-gray-300">Best Sustainability App at Design Awards 2024</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learnings -->
+    <section class="max-w-7xl mx-auto px-4 mb-16">
+      <div class="bg-gradient-to-r from-primary/10 to-accent/10 rounded-3xl p-12">
+        <h2 class="text-4xl font-bold text-dark dark:text-white mb-6">Key Learnings</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold text-dark dark:text-white mb-4">What Worked</h3>
+            <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+              <li>• Gamification elements significantly increased user engagement</li>
+              <li>• Visual impact tracking motivated continued usage</li>
+              <li>• Community features created accountability and support</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-dark dark:text-white mb-4">Future Improvements</h3>
+            <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+              <li>• Integration with smart home devices for automatic tracking</li>
+              <li>• AI-powered personalized recommendations</li>
+              <li>• Corporate partnerships for workplace sustainability programs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Next Project -->
+    <section class="max-w-7xl mx-auto px-4">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-dark dark:text-white mb-8">Explore More Projects</h2>
+        <a href="work.html" class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary/80 transition-colors">
+          View All Work
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-200 dark:border-gray-700 py-6 mt-16">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-sm text-dark dark:text-white">© 2025 Eve Peng - made with ❤️</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Project data
+    const projects = {
+      ecotracker: {
+        title: "EcoTracker App",
+        description: "A sustainable lifestyle tracking app that gamifies eco-friendly habits and connects users with environmental impact data to create meaningful behavioral change.",
+        tags: ["#UI/UX Design", "#Digital Sustainability"],
+        role: "Lead UX/UI Designer",
+        duration: "3 months",
+        tools: "Figma, Principle, Adobe Creative Suite",
+        team: "2 Designers, 3 Developers",
+        heroEmoji: "🌱",
+        problem: "Many people want to live more sustainably but struggle with tracking their environmental impact and maintaining eco-friendly habits. Existing solutions are either too complex, lack engagement, or don't provide actionable insights that motivate long-term behavioral change."
+      },
+      smarthome: {
+        title: "Smart Home Dashboard",
+        description: "An intuitive dashboard for managing smart home devices with voice control integration and energy monitoring capabilities.",
+        tags: ["#Everyday Tools", "#Interaction Design"],
+        role: "Senior UX Designer",
+        duration: "4 months",
+        tools: "Figma, Framer, Sketch",
+        team: "3 Designers, 4 Developers",
+        heroEmoji: "⚡",
+        problem: "Smart home users struggle with fragmented interfaces across multiple apps and devices, leading to poor user experience and underutilization of smart home capabilities."
+      },
+      carbon: {
+        title: "Carbon Footprint Calculator",
+        description: "A web application that helps users calculate and reduce their digital carbon footprint through actionable insights and recommendations.",
+        tags: ["#Digital Sustainability", "#UI/UX Design"],
+        role: "UX/UI Designer",
+        duration: "2 months",
+        tools: "Figma, Adobe XD, InVision",
+        team: "1 Designer, 2 Developers",
+        heroEmoji: "🌍",
+        problem: "People are unaware of their digital carbon footprint and lack tools to measure and reduce their environmental impact from digital activities."
+      },
+      aimusic: {
+        title: "AI Music Composer",
+        description: "An AI-powered music creation tool with an intuitive interface that makes music composition accessible to everyone.",
+        tags: ["#Playful Interface", "#AIGC Workflow"],
+        role: "Lead Product Designer",
+        duration: "6 months",
+        tools: "Figma, Principle, After Effects",
+        team: "2 Designers, 5 Developers",
+        heroEmoji: "🎵",
+        problem: "Music creation tools are complex and intimidating for beginners, while AI-powered solutions lack intuitive interfaces that make the creative process enjoyable."
+      },
+      community: {
+        title: "Community Platform",
+        description: "A digital platform that connects local communities and facilitates meaningful conversations about sustainability and social impact.",
+        tags: ["#Design as Dialogue", "#UI/UX Design"],
+        role: "UX Designer",
+        duration: "5 months",
+        tools: "Figma, Miro, Sketch",
+        team: "3 Designers, 4 Developers",
+        heroEmoji: "🌐",
+        problem: "Local communities lack digital platforms that facilitate meaningful connections and conversations about important social and environmental issues."
+      },
+      habits: {
+        title: "Habit Tracker",
+        description: "A delightful habit tracking app with gamification elements and social features to build positive routines and maintain motivation.",
+        tags: ["#Everyday Tools", "#Playful Interface"],
+        role: "Product Designer",
+        duration: "3 months",
+        tools: "Figma, Principle, Adobe Creative Suite",
+        team: "2 Designers, 3 Developers",
+        heroEmoji: "📱",
+        problem: "Traditional habit tracking apps are boring and fail to maintain long-term user engagement, leading to abandoned goals and broken routines."
+      }
+    };
+
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      html.classList.toggle('dark', savedTheme === 'dark');
+    }
+    
+    darkModeToggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // Load project data based on URL parameter
+    function loadProjectData() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const projectId = urlParams.get('project') || 'ecotracker';
+      const project = projects[projectId] || projects.ecotracker;
+
+      // Update page content
+      document.getElementById('projectTitle').textContent = project.title;
+      document.getElementById('projectDescription').textContent = project.description;
+      document.getElementById('projectRole').textContent = project.role;
+      document.getElementById('projectDuration').textContent = project.duration;
+      document.getElementById('projectTools').textContent = project.tools;
+      document.getElementById('projectTeam').textContent = project.team;
+      document.getElementById('projectHeroImage').innerHTML = `<span>${project.heroEmoji}</span>`;
+      document.getElementById('problemStatement').textContent = project.problem;
+      
+      // Update tags
+      const tagsContainer = document.getElementById('projectTags');
+      tagsContainer.innerHTML = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+      
+      // Update page title
+      document.title = `${project.title} - Eve Peng · 2025 Portfolio`;
+    }
+
+    // Load project data on page load
+    loadProjectData();
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.querySelectorAll('.process-step, .outcome-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

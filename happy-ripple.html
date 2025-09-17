@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Ripple - WeChat Mini Program - Eve Peng · 2025 Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/gilroy-regular" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/gilroy-semibold" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/reeji-taikoriskgb-flash" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#8F33FF',
+            secondary: '#FFCC00',
+            accent: '#FFC940',
+            lavender: '#E6E6FA',
+            beige: '#F5F5DC',
+            dark: '#212121'
+          },
+          fontFamily: {
+            'gilroy': ['Gilroy-Regular', 'Gilroy', 'Arial', 'sans-serif'],
+            'gilroy-semibold': ['Gilroy-Semibold', 'Gilroy', 'Arial', 'sans-serif'],
+            'gilroy-extrabold-italic': ['Gilroy-ExtraBoldItalic', 'Arial', 'sans-serif'],
+            'gilroy-light-italic': ['Gilroy-LightItalic', 'Arial', 'sans-serif'],
+            'courier': ['Courier Prime', 'Courier New', 'monospace'],
+            'reeji': ['REEJI-TaikoRiskGB-Flash', 'Arial', 'sans-serif'],
+            'hycuyuanj': ['HanYiCuYuanJian-1', 'Arial', 'sans-serif'],
+            'alibaba-black': ['Gilroy-Regular', 'Gilroy', 'Arial', 'sans-serif'],
+            'alibaba-thin': ['Gilroy-Regular', 'Gilroy', 'Arial', 'sans-serif'], 
+            'alibaba-heavy': ['Gilroy-Regular', 'Gilroy', 'Arial', 'sans-serif'],
+            'pingfang': ['Gilroy-Regular', 'Gilroy', 'Arial', 'sans-serif']
+          }
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+  
+  <style>
+    @font-face {
+      font-family: 'Gilroy-LightItalic';
+      src: url('./fonts/Gilroy-LightItalic.ttf') format('truetype');
+      font-weight: 300;
+      font-style: italic;
+      font-display: swap;
+    }
+    
+    @font-face {
+      font-family: 'Gilroy-SemiBold';
+      src: url('./fonts/Gilroy-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+    
+    @font-face {
+      font-family: 'Gilroy-SemiBoldItalic';
+      src: url('./fonts/Gilroy-SemiBoldItalic.ttf') format('truetype');
+      font-weight: 600;
+      font-style: italic;
+      font-display: swap;
+    }
+    
+    @font-face {
+      font-family: 'Gilroy-Bold';
+      src: url('./fonts/Gilroy-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    
+    @font-face {
+      font-family: 'Gilroy-ExtraBold';
+      src: url('./fonts/Gilroy-ExtraBold.ttf') format('truetype');
+      font-weight: 800;
+      font-style: normal;
+      font-display: swap;
+    }
+    
+    @font-face {
+      font-family: 'Gilroy-ExtraBoldItalic';
+      src: url('./fonts/Gilroy-ExtraBoldItalic.ttf') format('truetype');
+      font-weight: 800;
+      font-style: italic;
+      font-display: swap;
+    }
+    
+    @font-face {
+      font-family: 'Gilroy-BoldItalic';
+      src: url('./fonts/Gilroy-BoldItalic.ttf') format('truetype');
+      font-weight: 700;
+      font-style: italic;
+      font-display: swap;
+    }
+    
+    @font-face {
+      font-family: 'HanYiCuYuanJian-1';
+      src: url('./fonts/HanYiCuYuanJian-1.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    
+    .section-fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .section-fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .project-image-placeholder {
+      background-color: #D9D9D9;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;
+      font-size: 24px;
+      color: #666;
+    }
+    
+    .hero-image-placeholder {
+      background-color: #D9D9D9;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;
+      font-size: 24px;
+      color: #666;
+    }
+    
+    .persona-card {
+      border: 1px solid #212121;
+      border-radius: 20px;
+      padding: 24px;
+      background: white;
+    }
+    
+    .quote-text {
+      font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;
+      font-size: 28px;
+      line-height: 1.2;
+      color: #212121;
+    }
+    
+    .hashtag-pill {
+      background: #212121;
+      color: white;
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-family: 'Gilroy-SemiBoldItalic', 'Gilroy', Arial, sans-serif;
+      font-size: 24px;
+      display: inline-block;
+    }
+    
+    .brand-color-box {
+      border-radius: 40px;
+      height: 69px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif;
+      font-size: 24px;
+      color: white;
+    }
+    
+    .design-principle-box {
+      border: 1px solid #212121;
+      border-radius: 40px;
+      padding: 36px;
+      background: white;
+    }
+    
+    .typography-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 24px;
+      padding: 12px 0;
+      border-bottom: 1px solid #E5E5E5;
+    }
+    
+    .typography-header {
+      background: #F5F5F5;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body class="min-h-screen font-gilroy flex flex-col" style="background-color: #F8F8F8;">
+  <!-- Header -->
+  <header id="main-header" class="fixed top-0 w-full z-50 backdrop-blur-md transition-transform duration-300" style="height: 80px; background-color: rgba(248, 248, 248, 0.8); border-bottom: 1.5px solid black;">
+    <div class="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
+      <!-- Left Navigation - Black Capsule Container (56px height) -->
+      <div class="flex items-center bg-black rounded-full" style="height: 56px; padding: 24px 24px 24px 16px; border: 1.5px solid white;">
+        <!-- Search Icon -->
+        <div class="bg-black rounded-full flex items-center justify-center" style="width: 40px; height: 40px;">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+        
+        <!-- Navigation Items Container with 12px gap from search and 24px between items -->
+        <div class="flex items-center" style="margin-left: 12px; gap: 24px;">
+          <!-- Eve PENG (Home) - Inactive State (40px height) -->
+          <a href="index.html" class="nav-item flex items-center gap-2 bg-black rounded-full hover:scale-110 transition-transform" style="height: 40px; border: 1.5px solid white; padding-left: 10px; padding-right: 16px;">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M5.5 7A1.5 1.5 0 004 8.5v7A1.5 1.5 0 005.5 17h8.793l3.853 3.854a.5.5 0 00.854-.353V17H20a1.5 1.5 0 001.5-1.5v-7A1.5 1.5 0 0020 7H5.5z"/>
+            </svg>
+            <span class="text-base font-medium text-white">Eve PENG</span>
+          </a>
+          
+          <!-- Work - Active State (40px height) -->
+          <a href="work.html" class="nav-item active flex items-center gap-2 bg-white rounded-full hover:scale-110 transition-transform" style="height: 40px; border: 1.5px solid white; padding-left: 10px; padding-right: 16px;">
+            <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M5.5 7A1.5 1.5 0 004 8.5v7A1.5 1.5 0 005.5 17h8.793l3.853 3.854a.5.5 0 00.854-.353V17H20a1.5 1.5 0 001.5-1.5v-7A1.5 1.5 0 0020 7H5.5z"/>
+            </svg>
+            <span class="text-base font-bold text-black">Work</span>
+          </a>
+          
+          <!-- About - Inactive State (40px height) -->
+          <a href="about.html" class="nav-item flex items-center gap-2 bg-black rounded-full hover:scale-110 transition-transform" style="height: 40px; border: 1.5px solid white; padding-left: 10px; padding-right: 16px;">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M5.5 7A1.5 1.5 0 004 8.5v7A1.5 1.5 0 005.5 17h8.793l3.853 3.854a.5.5 0 00.854-.353V17H20a1.5 1.5 0 001.5-1.5v-7A1.5 1.5 0 0020 7H5.5z"/>
+            </svg>
+            <span class="text-base font-medium text-white">About</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Right Side - Social Icons (White Background) -->
+      <div class="flex items-center gap-3">
+        <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors border border-gray-200">
+          <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+        <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors border border-gray-200">
+          <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.024-.105-.949-.199-2.403.041-3.439.219-.937 1.404-5.965 1.404-5.965s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.347-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.747 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.624 0 11.99-5.367 11.99-11.987C24.007 5.367 18.641.001 12.017.001z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1" style="padding-bottom: 2rem;">
+    <!-- Hero Section -->
+    <section class="section-fade-in" style="min-height: 100vh; padding-top: 80px;">
+      <!-- Full-width project image (starts right after header) -->
+      <div class="w-full" style="height: calc(60vh + 60px); min-height: 460px; max-height: 560px;">
+        <div class="hero-image-placeholder w-full h-full">
+          <span>主要项目图片</span>
+        </div>
+      </div>
+      
+      <!-- Project Info Container -->
+      <div class="max-w-7xl mx-auto px-4 py-8">
+        <div class="max-w-4xl">
+          <!-- Title and Description -->
+          <h1 class="text-2xl font-semibold text-dark mb-4" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif;">
+            Wechat Mini Program - Happy Ripple
+          </h1>
+          
+          <p class="text-xl text-dark mb-16 leading-relaxed whitespace-nowrap" style="font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;">
+            A WeChat-style assistant that helps socially anxious users <span style="font-family: 'Gilroy-BoldItalic', 'Gilroy', Arial, sans-serif;">craft the right message — in the right tone — for the right person.</span>
+          </p>
+          
+          <!-- Project Details -->
+          <div class="w-full flex justify-center">
+            <div class="flex justify-between max-w-4xl w-full">
+              <div class="text-left">
+                <h3 class="text-base font-medium text-dark mb-2" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif;">Time</h3>
+                <p class="text-base text-dark">2025 - Present</p>
+              </div>
+              
+              <div class="text-left">
+                <h3 class="text-base font-medium text-dark mb-2" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif;">Role</h3>
+                <p class="text-base text-dark">Product Designer · Full-Stack Developer</p>
+              </div>
+              
+              <div class="text-left">
+                <h3 class="text-base font-medium text-dark mb-2" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif;">Project</h3>
+                <p class="text-base text-dark">Individual</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="max-w-7xl mx-auto px-4 mb-16 section-fade-in" style="margin-top: 80px;">
+      <h2 class="text-3xl font-semibold text-dark mb-20" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif;">
+        The Problem
+      </h2>
+      <!-- Problem Subheading above image and text -->
+      <h3 class="text-3xl font-bold text-dark" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif; font-size: 28px; margin-bottom: 60px;">
+        What does <span style="font-family: 'Gilroy-BoldItalic', 'Gilroy', Arial, sans-serif; color: #B3261E;">social anxiety</span> look like in the digital age?
+      </h3>
+      
+      <!-- Problem Image + Text (two-column layout) -->
+      <div class="flex items-start gap-12">
+        <!-- Left: Problem Image -->
+        <div class="flex-shrink-0" style="width: 352px; height: 366px;">
+          <img src="./images/happy-ripple-problem-scene-01.png" alt="Happy Ripple 问题场景示意" style="width: 100%; height: 100%; object-fit: cover; border-radius: 40px;">
+        </div>
+
+        <!-- Right: Problem Text Content -->
+        <div class="flex-1">
+          <div class="space-y-6 mb-8">
+            <p class="text-xl text-dark leading-relaxed" style="font-size: 20px;">
+              Texting should be simple — but for many, it isn't. Socially anxious users often overthink, hesitate, or avoid texting altogether.
+            </p>
+
+            <div class="space-y-3" style="max-width: 620px; margin: 36px auto;">
+              <p class="quote-text text-red-700" style="text-align: left; font-size: 20px; font-family: 'Gilroy-BoldItalic', 'Gilroy', Arial, sans-serif;">"I rewrote this message five times."</p>
+              <p class="quote-text text-red-700" style="text-align: left; font-size: 20px; font-family: 'Gilroy-BoldItalic', 'Gilroy', Arial, sans-serif;">"I don't want to sound rude."</p>
+              <p class="quote-text text-red-700" style="text-align: left; font-size: 20px; font-family: 'Gilroy-BoldItalic', 'Gilroy', Arial, sans-serif;">"Can someone just tell me what to say?"</p>
+            </div>
+
+            <p class="text-xl text-dark leading-relaxed" style="font-size: 20px;">
+              Such everyday anxieties show why a tool like HAPPY RIPPLE is needed — to help socially anxious users reply when words don't come easily.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Target User Section -->
+    <section class="max-w-7xl mx-auto px-4 mb-16 section-fade-in">
+      <h2 class="text-3xl font-semibold text-dark" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif; margin-top: 100px; margin-bottom: 80px;">
+        Target User
+      </h2>
+      
+      <div class="flex flex-col gap-8">
+        <!-- User Persona 1: Yan -->
+        <div class="flex items-start" style="gap: 40px;">
+          <!-- Left: Avatar + caption (outside container) -->
+          <div style="width: 150px;">
+            <div class="project-image-placeholder" style="width: 150px; height: 145px;">
+              <span>用户头像</span>
+            </div>
+            <div class="mt-2 text-sm text-dark">
+              <div>Yan (fictional)</div>
+              <div>University Student</div>
+            </div>
+          </div>
+          <!-- Right: Quote on top + Bordered info below -->
+          <div class="flex-1">
+            <p class="quote-text text-dark mb-4" style="font-family: 'Gilroy-BoldItalic', 'Gilroy', Arial, sans-serif; font-size: 20px;">"I rewrote my reply to my professor again and again, worried it might sound disrespectful."</p>
+            <div class="p-6" style="border: 1px solid #212121; border-radius: 16px; background: transparent;">
+              <div class="space-y-2">
+                <p class="text-xl text-dark"><strong>Typical Scenario:</strong> Replying to professors or advisors about assignments, research, or schedule changes</p>
+                <p class="text-xl text-dark"><strong>Pain Point:</strong> Struggles to balance formality and clarity; fears being misunderstood or judged by authority</p>
+                <p class="text-xl text-dark"><strong>Goal:</strong> Communicate politely and academically, without overthinking every word</p>
+              </div>
+            </div>
+          </div>
+        </div>
+         
+         <!-- User Persona 2: Lin -->
+        <div class="flex items-start" style="gap: 40px;">
+          <!-- Left: Avatar + caption (outside container) -->
+          <div style="width: 150px;">
+            <div class="project-image-placeholder" style="width: 150px; height: 145px;">
+              <span>用户头像</span>
+            </div>
+            <div class="mt-2 text-sm text-dark">
+              <div>Lin (fictional)</div>
+              <div>Junior Marketing Assistant</div>
+            </div>
+          </div>
+          <!-- Right: Quote on top + Bordered info below -->
+          <div class="flex-1">
+            <p class="quote-text text-dark mb-4" style="font-family: 'Gilroy-BoldItalic', 'Gilroy', Arial, sans-serif; font-size: 20px;">"I want to ask for leave, but I'm terrified of saying it wrong."</p>
+            <div class="p-6" style="border: 1px solid #212121; border-radius: 16px; background: transparent;">
+              <div class="space-y-2">
+                <p class="text-xl text-dark"><strong>Typical Scenario:</strong> Asking for leave, requesting schedule changes, or even resigning</p>
+                <p class="text-xl text-dark"><strong>Pain Point:</strong> Overthinking tone, fear of leaving a bad impression on managers</p>
+                <p class="text-xl text-dark"><strong>Goal:</strong> Express requests clearly without anxiety</p>
+              </div>
+            </div>
+          </div>
+        </div>
+         
+         <!-- User Persona 3: Mei (Family) -->
+        <div class="flex items-start" style="gap: 40px;">
+          <!-- Left: Avatar + caption (outside container) -->
+          <div style="width: 150px;">
+            <div class="project-image-placeholder" style="width: 150px; height: 145px;">
+              <span>用户头像</span>
+            </div>
+            <div class="mt-2 text-sm text-dark">
+              <div>Mei (fictional)</div>
+              <div>University Student</div>
+            </div>
+          </div>
+          <!-- Right: Quote on top + Bordered info below -->
+          <div class="flex-1">
+            <p class="quote-text text-dark mb-4" style="font-family: 'Gilroy-BoldItalic', 'Gilroy', Arial, sans-serif; font-size: 20px;">"I want to reply to my parents with care, but I never know the right words."</p>
+            <div class="p-6" style="border: 1px solid #212121; border-radius: 16px; background: transparent;">
+              <div class="space-y-2">
+                <p class="text-xl text-dark"><strong>Typical Scenario:</strong> Replying to greetings, blessings, or casual group chats</p>
+                <p class="text-xl text-dark"><strong>Pain Point:</strong> Feels guilty about sounding too cold or distant</p>
+                <p class="text-xl text-dark"><strong>Goal:</strong> Balancing warmth and brevity; afraid of sounding dismissive or overly formal</p>
+              </div>
+            </div>
+          </div>
+        </div>
+         
+         <!-- User Persona 4: Mei (Partner) -->
+        <div class="flex items-start" style="gap: 40px;">
+          <!-- Left: Avatar + caption (outside container) -->
+          <div style="width: 150px;">
+            <div class="project-image-placeholder" style="width: 150px; height: 145px;">
+              <span>用户头像</span>
+            </div>
+            <div class="mt-2 text-sm text-dark">
+              <div>Mei (fictional)</div>
+              <div>University Student</div>
+            </div>
+          </div>
+          <!-- Right: Quote on top + Bordered info below -->
+          <div class="flex-1">
+            <p class="quote-text text-dark mb-4" style="font-family: 'Gilroy-BoldItalic', 'Gilroy', Arial, sans-serif; font-size: 20px;">"I know I should apologize, but every draft sounds either too cold or too dramatic."</p>
+            <div class="p-6" style="border: 1px solid #212121; border-radius: 16px; background: transparent;">
+              <div class="space-y-2">
+                <p class="text-xl text-dark"><strong>Typical Scenario:</strong> Small fights, misunderstandings, or cold silence after emotional conversations</p>
+                <p class="text-xl text-dark"><strong>Pain Point:</strong> Struggles to find the right tone—afraid of sounding insincere if too short, but also fears overwhelming the partner with long explanations.</p>
+                <p class="text-xl text-dark"><strong>Goal:</strong> Express genuine apology in a natural, caring way that helps ease tension and rebuild closeness.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- User Insights Section -->
+    <section class="max-w-7xl mx-auto px-4 mb-16 section-fade-in">
+      <div class="design-principle-box mb-8">
+        <div class="bg-black text-white rounded-lg px-6 py-2 inline-block mb-6" style="opacity: 0.9;">
+          <h2 class="text-3xl font-semibold" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif;">
+            User Insights
+          </h2>
+        </div>
+        
+        <div class="grid grid-cols-1 gap-12">
+          <div class="space-y-6">
+            <p class="text-xl text-dark leading-relaxed">
+              Users don't just struggle with "what to say," they struggle with how to say it. → A message to a boss needs to be formal and respectful, while a reply to a friend can be casual and warm.
+            </p>
+            <p class="text-xl text-dark leading-relaxed">
+              Socially anxious users fear sounding "wrong" or "inappropriate." → Clear tone guidance to reduce hesitation and build confidence. → Low-effort, instant generation to ease overthinking.
+            </p>
+            <p class="text-xl text-dark leading-relaxed">
+              One-size-fits-all responses don't work. → Context-aware replies that adapt to different relationships (boss, friend, family) and tone (formal / casual / playful).
+            </p>
+            <p class="text-xl text-dark leading-relaxed">
+              Generic AI replies often feel too long, too stiff, or "not me." → Editable, customizable outputs that still "sound like me"
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Structure & Flow Section -->
+    <section class="max-w-7xl mx-auto px-4 mb-16 section-fade-in">
+      <h2 class="text-3xl font-semibold text-dark" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif; margin-top: 100px; margin-bottom: 80px;">
+        Structure & Flow
+      </h2>
+      <div class="space-y-6">
+        <h3 class="text-3xl font-medium text-dark" style="font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;">
+          Minimize decisions and maximize confidence
+        </h3>
+        <div class="space-y-4">
+          <p class="text-xl text-dark leading-relaxed">→ Step 1: Open app→ Select who you're talking to (e.g., boss, friend)</p>
+          <p class="text-xl text-dark leading-relaxed">→ (Optional) Adjust or edit the reply tone (formal, casual, playful, or custom)</p>
+          <p class="text-xl text-dark leading-relaxed">→ Step 2: Type/paste what the other person said</p>
+          <p class="text-xl text-dark leading-relaxed">→ Step 3: Get a full, polished message — ready to send</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Brand Value Section -->
+    <section class="max-w-7xl mx-auto px-4 mb-16 section-fade-in">
+      <h2 class="text-3xl font-semibold text-dark mb-8" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif;">
+        Brand Value
+      </h2>
+      
+      <!-- Brand Colors -->
+      <div class="mb-12">
+        <h3 class="text-3xl font-semibold text-dark mb-6" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif;">
+          Brand Color
+        </h3>
+        
+        <div class="flex gap-6 mb-8">
+          <div class="brand-color-box" style="background-color: #8F33FF; width: 162px;">
+            Primary
+          </div>
+          <div class="brand-color-box" style="background-color: #FFCC00; width: 162px; color: black;">
+            Secondary
+          </div>
+        </div>
+        
+        <!-- Color Descriptions -->
+        <div class="grid grid-cols-2 gap-8">
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <div class="bg-primary rounded-full px-6 py-2">
+                <span class="text-2xl font-semibold text-white">Primary</span>
+              </div>
+              <div class="border border-black rounded-full px-6 py-2">
+                <span class="text-2xl font-semibold text-primary">Purple #8F33FF</span>
+              </div>
+            </div>
+            
+            <p class="text-xl text-dark leading-relaxed">
+              Compared to blue, purple retains the rationality and professionalism of cool tones while adding warmth and creative expression, aligning with the identity of an AI-assisted communication tool. Neuroscience research (MIT) shows that blue–purple tones can activate both the prefrontal cortex (rational decision-making) and the limbic system (emotional resonance), boosting decision confidence by 27% for people with social anxiety. Thus, purple effectively conveys safety and low psychological pressure.
+            </p>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <div class="bg-secondary rounded-full px-6 py-2">
+                <span class="text-2xl font-semibold text-black">Secondary</span>
+              </div>
+              <div class="border border-black rounded-full px-6 py-2">
+                <span class="text-2xl font-semibold text-secondary">Yellow #FFCC00</span>
+              </div>
+            </div>
+            
+            <p class="text-xl text-dark leading-relaxed">
+              Acts as the accent color to emphasize warmth and sociability, visually adding vitality and excitement while enhancing shareability and memorability. Its high contrast with purple ensures clarity even in dark mode and meets the needs of high recognition and viral spread in social applications, turning color itself into a free communication channel.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Healing & Virality Tags -->
+        <div class="mt-8">
+          <h3 class="text-3xl font-semibold text-dark mb-6" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif;">
+            Healing & Virality
+          </h3>
+          
+          <div class="flex flex-wrap gap-4">
+            <span class="hashtag-pill">#SocialEngagement</span>
+            <span class="hashtag-pill">#BrandDifferentiation</span>
+            <span class="hashtag-pill">#CreativeInnovation</span>
+            <span class="hashtag-pill">#HighVisibility</span>
+            <span class="hashtag-pill">#TrustBuilding</span>
+          </div>
+          
+          <p class="text-2xl text-dark mt-6 leading-relaxed" style="font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;">
+            Build unique identity with a recognizable color system that extends beyond the interface
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Design Guidelines Section -->
+    <section class="max-w-7xl mx-auto px-4 mb-16 section-fade-in">
+      <div class="design-principle-box">
+        <h2 class="text-3xl font-semibold text-dark mb-8" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif;">
+          Design Guidelines
+        </h2>
+        
+        <p class="text-xl text-dark mb-6 leading-relaxed">
+          Enhance Product Experience by unified typography, icon style, and 8pt spacing system to ensure clarity and consistency
+        </p>
+        
+        <p class="text-2xl font-semibold text-dark mb-8" style="font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;">
+          Components: Modular design for buttons, input fields, scenario cards, and chat bubbles to support scalability
+        </p>
+        
+        <!-- Typography Table -->
+        <div class="border border-black rounded-lg overflow-hidden">
+          <div class="typography-row typography-header">
+            <div class="font-semibold">Type Level</div>
+            <div class="font-semibold">Font Family</div>
+            <div class="font-semibold">Weight</div>
+            <div class="font-semibold">Size (px)</div>
+          </div>
+          
+          <div class="typography-row">
+            <div>Banner</div>
+            <div>Alibaba PuHui</div>
+            <div>Heavy</div>
+            <div>24 pt</div>
+          </div>
+          
+          <div class="typography-row">
+            <div>H1</div>
+            <div>Alibaba PuHui</div>
+            <div>Bold</div>
+            <div>24 pt</div>
+          </div>
+          
+          <div class="typography-row">
+            <div>H2</div>
+            <div>Alibaba PuHui</div>
+            <div>Light</div>
+            <div>16 pt</div>
+          </div>
+          
+          <div class="typography-row">
+            <div>Body Text</div>
+            <div>SF Pro</div>
+            <div>Regular</div>
+            <div>14 pt</div>
+          </div>
+          
+          <div class="typography-row">
+            <div>Body Small</div>
+            <div>SF Pro</div>
+            <div>Regular</div>
+            <div>12 pt</div>
+          </div>
+        </div>
+        
+        <!-- Color Indicators -->
+        <div class="flex items-center gap-6 mt-8">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-dark rounded-full"></div>
+            <span class="text-xl font-medium">Text Primary</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-gray-500 rounded-full"></div>
+            <span class="text-xl font-medium">Text Secondary</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- IP & Icon Section -->
+    <section class="max-w-7xl mx-auto px-4 mb-16 section-fade-in">
+      <div class="grid grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-2xl font-semibold text-dark mb-6" style="font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;">
+            IP
+          </h2>
+          <div class="project-image-placeholder" style="height: 150px;">
+            <span>IP形象图片</span>
+          </div>
+        </div>
+        
+        <div>
+          <h2 class="text-2xl font-semibold text-dark mb-6" style="font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;">
+            ICON
+          </h2>
+          <div class="project-image-placeholder" style="height: 231px;">
+            <span>图标设计</span>
+          </div>
+        </div>
+      </div>
+      
+      <p class="text-2xl text-dark mt-8 leading-relaxed" style="font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;">
+        Persona avatars and sticker packs extend the brand language, building a recognizable visual identity
+      </p>
+      
+      <!-- Additional Images -->
+      <div class="grid grid-cols-2 gap-8 mt-8">
+        <div class="project-image-placeholder" style="height: 287px;">
+          <span>品牌延展图片</span>
+        </div>
+        <div class="project-image-placeholder" style="height: 287px;">
+          <span>品牌延展图片</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- UI Design Section -->
+    <section class="max-w-7xl mx-auto px-4 mb-16 section-fade-in">
+      <h2 class="text-3xl font-semibold text-dark mb-8" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif;">
+        UI Design
+      </h2>
+      
+      <!-- Chat Home Page -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold text-dark mb-4" style="font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;">
+          Chat Home Page
+        </h3>
+        
+        <p class="text-xl text-dark mb-6 leading-relaxed">
+          Goal: Make starting simple for anxious users.<br>
+          Why: Central input focuses on "paste → reply."<br>
+          Design: Role cards + scenario tags reduce blank-page stress.
+        </p>
+        
+        <div class="project-image-placeholder" style="height: 294px; max-width: 400px;">
+          <span>聊天主页界面截图</span>
+        </div>
+      </div>
+      
+      <!-- Conversation Page -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold text-dark mb-4" style="font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;">
+          Conversation Page
+        </h3>
+        
+        <p class="text-xl text-dark mb-6 leading-relaxed">
+          Goal: Provide instant, trustworthy replies.<br>
+          Why: WeChat-style bubbles build familiarity.<br>
+          Design: Copy is the primary action; inline controls reduce friction.
+        </p>
+        
+        <div class="project-image-placeholder" style="height: 294px; max-width: 400px;">
+          <span>对话页面截图</span>
+        </div>
+      </div>
+      
+      <!-- Scenario Page -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold text-dark mb-4" style="font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;">
+          Scenario Page / FAQ
+        </h3>
+        
+        <p class="text-xl text-dark mb-6 leading-relaxed">
+          Goal: Help users who don't know how to start.<br>
+          Why: Pre-set scenarios lower barriers.<br>
+          Design: Suggested questions + quick generate encourage exploration.
+        </p>
+        
+        <div class="project-image-placeholder" style="height: 294px; max-width: 400px;">
+          <span>场景页面截图</span>
+        </div>
+      </div>
+      
+      <!-- Sub-scenario Page -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold text-dark mb-4" style="font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;">
+          Sub-scenario Page (e.g., Blessings)
+        </h3>
+        
+        <p class="text-xl text-dark mb-6 leading-relaxed">
+          Goal: Turn "can't express" into easy selections.<br>
+          Why: Field-based input reduces anxiety.<br>
+          Design: Tone preview cards + slider make styles tangible.
+        </p>
+        
+        <div class="project-image-placeholder" style="height: 294px; max-width: 400px;">
+          <span>子场景页面截图</span>
+        </div>
+      </div>
+      
+      <!-- Generation Result Page -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold text-dark mb-4" style="font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;">
+          Generation Result Page
+        </h3>
+        
+        <p class="text-xl text-dark mb-6 leading-relaxed">
+          Goal: Support choice + personalization.<br>
+          Why: Multiple suggestions cut trial-and-error.<br>
+          Design: Supplemental input refines results, Copy = default action.
+        </p>
+        
+        <div class="project-image-placeholder" style="height: 294px; max-width: 400px;">
+          <span>生成结果页面截图</span>
+        </div>
+      </div>
+      
+      <!-- Phrase Library -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold text-dark mb-4" style="font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;">
+          Phrase Library
+        </h3>
+        
+        <p class="text-xl text-dark mb-6 leading-relaxed">
+          Goal: Build a reusable "reply library."<br>
+          Why: Users need to save and reuse expressions.<br>
+          Design: Tabs for Recents/Favorites, searchable cards.
+        </p>
+        
+        <div class="project-image-placeholder" style="height: 294px; max-width: 400px;">
+          <span>短语库页面截图</span>
+        </div>
+      </div>
+      
+      <!-- Settings Page -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold text-dark mb-4" style="font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;">
+          Settings Page (Custom Role)
+        </h3>
+        
+        <p class="text-xl text-dark mb-6 leading-relaxed">
+          Goal: Personalize replies for real contexts.<br>
+          Why: Roles act as shortcuts, reducing repetition.<br>
+          Design: Avatar + tone slider + traits; Save updates everywhere.
+        </p>
+        
+        <div class="project-image-placeholder" style="height: 294px; max-width: 400px;">
+          <span>设置页面截图</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Reflection Section -->
+    <section class="max-w-7xl mx-auto px-4 mb-16 section-fade-in">
+      <h2 class="text-3xl font-semibold text-dark mb-8" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif;">
+        Reflection
+      </h2>
+      
+      <div class="space-y-8 text-2xl text-dark leading-relaxed" style="font-family: 'Gilroy-Regular', 'Gilroy', Arial, sans-serif;">
+        <div>
+          <h3 class="font-semibold mb-4">Challenges</h3>
+          <ul class="space-y-2">
+            <li>Balancing familiarity (WeChat-like) with new features</li>
+            <li>Designing for various anxiety levels with flexible logic</li>
+            <li>Managing product, design, and code—all solo</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="font-semibold mb-4">What I Learned</h3>
+          <ul class="space-y-2">
+            <li>The best UI starts from understanding human hesitation</li>
+            <li>Prompt design is not just technical—it's emotional</li>
+            <li>A tool can feel like a friend, when it's designed with empathy</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="font-semibold mb-4">Next Steps</h3>
+          <ul class="space-y-2">
+            <li>Add a "Saved Replies" folder</li>
+            <li>Expand to multilingual support</li>
+            <li>Launch on WeChat Mini Program ecosystem</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-3 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-sm text-dark">© 2025 Eve Peng - made with ♥</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Navigation active state management
+    function setActiveNavItem(activeHref) {
+      const navItems = document.querySelectorAll('.nav-item');
+      
+      navItems.forEach(item => {
+        const isActive = item.getAttribute('href') === activeHref;
+        const icon = item.querySelector('svg');
+        const text = item.querySelector('span');
+        
+        if (isActive) {
+          // Active state: white background, black text (bold)
+          item.className = 'nav-item active flex items-center gap-2 bg-white rounded-full hover:scale-110 transition-transform';
+          item.style.height = '40px';
+          item.style.border = '1.5px solid white';
+          item.style.paddingLeft = '10px';
+          item.style.paddingRight = '16px';
+          icon.className = 'w-5 h-5 text-black';
+          text.className = 'text-base font-bold text-black';
+        } else {
+          // Inactive state: black background, white text
+          item.className = 'nav-item flex items-center gap-2 bg-black rounded-full hover:scale-110 transition-transform';
+          item.style.height = '40px';
+          item.style.border = '1.5px solid white';
+          item.style.paddingLeft = '10px';
+          item.style.paddingRight = '16px';
+          icon.className = 'w-5 h-5 text-white';
+          text.className = 'text-base font-medium text-white';
+        }
+      });
+    }
+    
+    // Set active state for Work page (since this is a work project detail)
+    setActiveNavItem('work.html');
+    
+    // Add click handlers for navigation items
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        setActiveNavItem(href);
+      });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe sections for animation
+    document.querySelectorAll('.section-fade-in').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Header scroll behavior - hide after first section
+    const header = document.getElementById('main-header');
+    const heroSection = document.querySelector('main section:first-child'); // First section in main
+    
+    function handleHeaderVisibility() {
+      if (!heroSection) return;
+      
+      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (scrollTop > heroBottom - 100) { // Hide header when scrolled past hero section (with 100px buffer)
+        header.style.transform = 'translateY(-100%)';
+      } else {
+        header.style.transform = 'translateY(0)';
+      }
+    }
+    
+    // Listen for scroll events
+    window.addEventListener('scroll', handleHeaderVisibility);
+    
+    // Initial check
+    handleHeaderVisibility();
+  </script>
+</body>
+</html>

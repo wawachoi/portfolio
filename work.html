@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work - Eve Peng · 2025 Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/gilroy-regular" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/gilroy-semibold" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/reeji-taikoriskgb-flash" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#8F33FF',
+            accent: '#FFC940',
+            lavender: '#E6E6FA',
+            beige: '#F5F5DC',
+            dark: '#212121'
+          },
+          fontFamily: {
+            'gilroy': ['Gilroy-Regular', 'Gilroy', 'Arial', 'sans-serif'],
+            'gilroy-semibold': ['Gilroy-Semibold', 'Gilroy', 'Arial', 'sans-serif'],
+            'gilroy-extrabold-italic': ['Gilroy-ExtraBoldItalic', 'Arial', 'sans-serif'],
+            'gilroy-light-italic': ['Gilroy-LightItalic', 'Arial', 'sans-serif'],
+            'courier': ['Courier Prime', 'Courier New', 'monospace'],
+            'reeji': ['REEJI-TaikoRiskGB-Flash', 'Arial', 'sans-serif'],
+            'hycuyuanj': ['HanYiCuYuanJian-1', 'Arial', 'sans-serif'],
+            'alibaba-black': ['Gilroy-Regular', 'Gilroy', 'Arial', 'sans-serif'],
+            'alibaba-thin': ['Gilroy-Regular', 'Gilroy', 'Arial', 'sans-serif'], 
+            'alibaba-heavy': ['Gilroy-Regular', 'Gilroy', 'Arial', 'sans-serif'],
+            'pingfang': ['Gilroy-Regular', 'Gilroy', 'Arial', 'sans-serif']
+          }
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+  
+  <style>
+    @font-face {
+      font-family: 'Gilroy-LightItalic';
+      src: url('./fonts/Gilroy-LightItalic.ttf') format('truetype');
+      font-weight: 300;
+      font-style: italic;
+      font-display: swap;
+    }
+    
+    @font-face {
+      font-family: 'Gilroy-SemiBold';
+      src: url('./fonts/Gilroy-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+    
+    @font-face {
+      font-family: 'Gilroy-ExtraBoldItalic';
+      src: url('./fonts/Gilroy-ExtraBoldItalic.ttf') format('truetype');
+      font-weight: 800;
+      font-style: italic;
+      font-display: swap;
+    }
+    
+    @font-face {
+      font-family: 'HanYiCuYuanJian-1';
+      src: url('./fonts/HanYiCuYuanJian-1.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    
+    .project-section {
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .project-image-container {
+      transition: transform 0.3s ease;
+    }
+    
+    .project-image-container:hover {
+      transform: scale(1.02);
+    }
+    
+    .project-tag {
+      cursor: default;
+    }
+    
+    .filter-category {
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    
+    .filter-category.active {
+      color: #212121;
+    }
+    
+    .filter-category:not(.active) {
+      color: #9CA3AF;
+    }
+    
+    .filter-category:hover {
+      color: #4B5563;
+    }
+  </style>
+</head>
+<body class="min-h-screen font-gilroy flex flex-col" style="background-color: #F8F8F8;">
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 backdrop-blur-md" style="height: 80px; background-color: rgba(248, 248, 248, 0.8); border-bottom: 1.5px solid black;">
+    <div class="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
+      <!-- Left Navigation - Black Capsule Container (56px height) -->
+      <div class="flex items-center bg-black rounded-full" style="height: 56px; padding: 24px 24px 24px 16px; border: 1.5px solid white;">
+        <!-- Search Icon -->
+        <div class="bg-black rounded-full flex items-center justify-center" style="width: 40px; height: 40px;">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+        
+        <!-- Navigation Items Container with 12px gap from search and 24px between items -->
+        <div class="flex items-center" style="margin-left: 12px; gap: 24px;">
+          <!-- Eve PENG (Home) - Inactive State (40px height) -->
+          <a href="index.html" class="nav-item flex items-center gap-2 bg-black rounded-full hover:scale-110 transition-transform" style="height: 40px; border: 1.5px solid white; padding-left: 10px; padding-right: 16px;">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M5.5 7A1.5 1.5 0 004 8.5v7A1.5 1.5 0 005.5 17h8.793l3.853 3.854a.5.5 0 00.854-.353V17H20a1.5 1.5 0 001.5-1.5v-7A1.5 1.5 0 0020 7H5.5z"/>
+            </svg>
+            <span class="text-base font-medium text-white">Eve PENG</span>
+          </a>
+          
+          <!-- Work - Active State (40px height) -->
+          <a href="work.html" class="nav-item active flex items-center gap-2 bg-white rounded-full hover:scale-110 transition-transform" style="height: 40px; border: 1.5px solid white; padding-left: 10px; padding-right: 16px;">
+            <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M5.5 7A1.5 1.5 0 004 8.5v7A1.5 1.5 0 005.5 17h8.793l3.853 3.854a.5.5 0 00.854-.353V17H20a1.5 1.5 0 001.5-1.5v-7A1.5 1.5 0 0020 7H5.5z"/>
+            </svg>
+            <span class="text-base font-bold text-black">Work</span>
+          </a>
+          
+          <!-- About - Inactive State (40px height) -->
+          <a href="about.html" class="nav-item flex items-center gap-2 bg-black rounded-full hover:scale-110 transition-transform" style="height: 40px; border: 1.5px solid white; padding-left: 10px; padding-right: 16px;">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M5.5 7A1.5 1.5 0 004 8.5v7A1.5 1.5 0 005.5 17h8.793l3.853 3.854a.5.5 0 00.854-.353V17H20a1.5 1.5 0 001.5-1.5v-7A1.5 1.5 0 0020 7H5.5z"/>
+            </svg>
+            <span class="text-base font-medium text-white">About</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Right Side - Social Icons (White Background) -->
+      <div class="flex items-center gap-3">
+        <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors border border-gray-200">
+          <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+        <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors border border-gray-200">
+          <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.024-.105-.949-.199-2.403.041-3.439.219-.937 1.404-5.965 1.404-5.965s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.347-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.747 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.624 0 11.99-5.367 11.99-11.987C24.007 5.367 18.641.001 12.017.001z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1" style="padding-top: 112px; padding-bottom: 2rem;">
+    <!-- Page Title Section with Filter -->
+    <section class="max-w-7xl mx-auto px-4">
+      <div class="text-left">
+        <div class="flex items-center gap-8" style="margin-bottom: 12px;">
+          <button class="filter-category font-semibold text-dark transition-colors active" data-filter="all" style="font-family: 'Gilroy-Semibold', 'Gilroy', Arial, sans-serif; font-size: 24px;">
+          All Projects
+        </button>
+          <span class="text-3xl font-light text-gray-300">/</span>
+          <button class="filter-category font-semibold text-gray-400 transition-colors" data-filter="uiux" style="font-family: 'Gilroy-Semibold', 'Gilroy', Arial, sans-serif; font-size: 24px;">
+          UI/UX Design
+        </button>
+          <span class="text-3xl font-light text-gray-300">/</span>
+          <button class="filter-category font-semibold text-gray-400 transition-colors" data-filter="interaction" style="font-family: 'Gilroy-Semibold', 'Gilroy', Arial, sans-serif; font-size: 24px;">
+          Interaction Design
+        </button>
+          <span class="text-3xl font-light text-gray-300">/</span>
+          <button class="filter-category font-semibold text-gray-400 transition-colors" data-filter="sustainability" style="font-family: 'Gilroy-Semibold', 'Gilroy', Arial, sans-serif; font-size: 24px;">
+          Digital Sustainability
+        </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider Line -->
+    <div class="max-w-7xl mx-auto px-4 mb-8 divider-line">
+      <hr class="border-black w-full">
+    </div>
+
+    <!-- Project 1: Happy Ripple -->
+    <section class="max-w-7xl mx-auto px-4 mb-8 project-section" data-categories="uiux">
+      <div class="flex gap-8 items-center">
+        <!-- Left Side: Project Box (1/3) -->
+        <div class="w-1/3">
+          <a href="happy-ripple.html" class="block">
+            <div class="bg-white rounded-3xl border border-dark p-8 project-image-container cursor-pointer transition-all duration-300" style="height: 260px;">
+              <div class="flex items-center h-full">
+                <!-- Left Half: Project Image -->
+                <div class="w-1/2 h-full flex items-center justify-center">
+                  <div class="bg-gray-200 rounded-lg p-4" style="width: 120px; height: 160px;">
+                    <div class="w-full h-full bg-gray-300 rounded-lg flex items-center justify-center">
+                      <div class="text-center">
+                        <div class="text-4xl mb-2">💬</div>
+                        <p class="text-xs text-gray-500">项目图片</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Right Half: Project Info -->
+                <div class="w-1/2 h-full flex flex-col justify-center pl-6">
+                  <span class="block font-semibold text-dark leading-none" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif; font-style: italic; font-size: 32px;">01</span>
+                  <h2 class="font-bold text-dark leading-none m-0" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif; font-style: italic; font-size: 32px; margin-top: 8px;">
+                    Happy Ripple
+                  </h2>
+                  
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <!-- Right Side: Content (2/3) -->
+        <div class="w-2/3 pl-8">
+          <!-- Highlighted Question -->
+          <div class="mb-6">
+            <h3 class="text-2xl font-bold text-primary mb-4" style="font-family: 'Gilroy-ExtraBoldItalic', 'Gilroy', Arial, sans-serif;">
+              What if texting didn't feel like a test?
+            </h3>
+          </div>
+          
+          <!-- Project Description -->
+          <div class="mb-8">
+            <p class="text-xl text-dark leading-relaxed">
+              A conversational UI for people who struggle with social messaging
+            </p>
+          </div>
+          
+          <!-- Tags Section -->
+          <div class="mb-8">
+            <div class="flex flex-wrap gap-3">
+              <span class="px-3 border border-dark rounded-full text-sm font-medium text-dark project-tag flex items-center" style="padding-top: 6px; padding-bottom: 6px; width: fit-content;">
+                <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.4685 1.7583H14.5584C14.3746 1.75817 14.1983 1.83078 14.0679 1.96027L2.25258 13.7756C1.99387 14.0356 1.84863 14.3874 1.84863 14.7542C1.84863 15.121 1.99387 15.4728 2.25258 15.7328L7.87893 21.3591C8.13891 21.6179 8.49075 21.7631 8.85753 21.7631C9.2243 21.7631 9.57614 21.6179 9.83612 21.3591L21.6466 9.54863C21.7761 9.41824 21.8488 9.24189 21.8486 9.05813V3.14325C21.8495 2.96153 21.8144 2.78143 21.7455 2.61332C21.6765 2.4452 21.5749 2.29239 21.4467 2.16367C21.3184 2.03495 21.1659 1.93287 20.998 1.8633C20.8302 1.79373 20.6502 1.75805 20.4685 1.7583Z" fill="white" stroke="currentColor" stroke-width="3.0102" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M17.7134 4.14282C18.0028 4.08525 18.303 4.11389 18.5757 4.22681C18.8483 4.33975 19.0816 4.53123 19.2456 4.77661C19.4095 5.02196 19.4966 5.31064 19.4966 5.60571C19.4966 6.00146 19.3399 6.38154 19.0601 6.66138C18.7802 6.94121 18.4001 7.0979 18.0044 7.0979C17.7093 7.09787 17.4206 7.01085 17.1753 6.84692C16.9299 6.68296 16.7384 6.44966 16.6255 6.177C16.5126 5.90436 16.4839 5.60413 16.5415 5.3147C16.5991 5.0253 16.7411 4.75968 16.9497 4.55103C17.1584 4.34237 17.424 4.20041 17.7134 4.14282Z" fill="currentColor" stroke="currentColor" stroke-width="0.0940689"/>
+                </svg>
+                UX for Mental Health
+              </span>
+              <span class="px-3 border border-dark rounded-full text-sm font-medium text-dark project-tag flex items-center" style="padding-top: 6px; padding-bottom: 6px; width: fit-content;">
+                <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.4685 1.7583H14.5584C14.3746 1.75817 14.1983 1.83078 14.0679 1.96027L2.25258 13.7756C1.99387 14.0356 1.84863 14.3874 1.84863 14.7542C1.84863 15.121 1.99387 15.4728 2.25258 15.7328L7.87893 21.3591C8.13891 21.6179 8.49075 21.7631 8.85753 21.7631C9.2243 21.7631 9.57614 21.6179 9.83612 21.3591L21.6466 9.54863C21.7761 9.41824 21.8488 9.24189 21.8486 9.05813V3.14325C21.8495 2.96153 21.8144 2.78143 21.7455 2.61332C21.6765 2.4452 21.5749 2.29239 21.4467 2.16367C21.3184 2.03495 21.1659 1.93287 20.998 1.8633C20.8302 1.79373 20.6502 1.75805 20.4685 1.7583Z" fill="white" stroke="currentColor" stroke-width="3.0102" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M17.7134 4.14282C18.0028 4.08525 18.303 4.11389 18.5757 4.22681C18.8483 4.33975 19.0816 4.53123 19.2456 4.77661C19.4095 5.02196 19.4966 5.31064 19.4966 5.60571C19.4966 6.00146 19.3399 6.38154 19.0601 6.66138C18.7802 6.94121 18.4001 7.0979 18.0044 7.0979C17.7093 7.09787 17.4206 7.01085 17.1753 6.84692C16.9299 6.68296 16.7384 6.44966 16.6255 6.177C16.5126 5.90436 16.4839 5.60413 16.5415 5.3147C16.5991 5.0253 16.7411 4.75968 16.9497 4.55103C17.1584 4.34237 17.424 4.20041 17.7134 4.14282Z" fill="currentColor" stroke="currentColor" stroke-width="0.0940689"/>
+                </svg>
+                Emotional Interface Design
+              </span>
+              <span class="px-3 border border-dark rounded-full text-sm font-medium text-dark project-tag flex items-center" style="padding-top: 6px; padding-bottom: 6px; width: fit-content;">
+                <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.4685 1.7583H14.5584C14.3746 1.75817 14.1983 1.83078 14.0679 1.96027L2.25258 13.7756C1.99387 14.0356 1.84863 14.3874 1.84863 14.7542C1.84863 15.121 1.99387 15.4728 2.25258 15.7328L7.87893 21.3591C8.13891 21.6179 8.49075 21.7631 8.85753 21.7631C9.2243 21.7631 9.57614 21.6179 9.83612 21.3591L21.6466 9.54863C21.7761 9.41824 21.8488 9.24189 21.8486 9.05813V3.14325C21.8495 2.96153 21.8144 2.78143 21.7455 2.61332C21.6765 2.4452 21.5749 2.29239 21.4467 2.16367C21.3184 2.03495 21.1659 1.93287 20.998 1.8633C20.8302 1.79373 20.6502 1.75805 20.4685 1.7583Z" fill="white" stroke="currentColor" stroke-width="3.0102" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M17.7134 4.14282C18.0028 4.08525 18.303 4.11389 18.5757 4.22681C18.8483 4.33975 19.0816 4.53123 19.2456 4.77661C19.4095 5.02196 19.4966 5.31064 19.4966 5.60571C19.4966 6.00146 19.3399 6.38154 19.0601 6.66138C18.7802 6.94121 18.4001 7.0979 18.0044 7.0979C17.7093 7.09787 17.4206 7.01085 17.1753 6.84692C16.9299 6.68296 16.7384 6.44966 16.6255 6.177C16.5126 5.90436 16.4839 5.60413 16.5415 5.3147C16.5991 5.0253 16.7411 4.75968 16.9497 4.55103C17.1584 4.34237 17.424 4.20041 17.7134 4.14282Z" fill="currentColor" stroke="currentColor" stroke-width="0.0940689"/>
+                </svg>
+                Custom Personas
+              </span>
+              <span class="px-3 border border-dark rounded-full text-sm font-medium text-dark project-tag flex items-center" style="padding-top: 6px; padding-bottom: 6px; width: fit-content;">
+                <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.4685 1.7583H14.5584C14.3746 1.75817 14.1983 1.83078 14.0679 1.96027L2.25258 13.7756C1.99387 14.0356 1.84863 14.3874 1.84863 14.7542C1.84863 15.121 1.99387 15.4728 2.25258 15.7328L7.87893 21.3591C8.13891 21.6179 8.49075 21.7631 8.85753 21.7631C9.2243 21.7631 9.57614 21.6179 9.83612 21.3591L21.6466 9.54863C21.7761 9.41824 21.8488 9.24189 21.8486 9.05813V3.14325C21.8495 2.96153 21.8144 2.78143 21.7455 2.61332C21.6765 2.4452 21.5749 2.29239 21.4467 2.16367C21.3184 2.03495 21.1659 1.93287 20.998 1.8633C20.8302 1.79373 20.6502 1.75805 20.4685 1.7583Z" fill="white" stroke="currentColor" stroke-width="3.0102" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M17.7134 4.14282C18.0028 4.08525 18.303 4.11389 18.5757 4.22681C18.8483 4.33975 19.0816 4.53123 19.2456 4.77661C19.4095 5.02196 19.4966 5.31064 19.4966 5.60571C19.4966 6.00146 19.3399 6.38154 19.0601 6.66138C18.7802 6.94121 18.4001 7.0979 18.0044 7.0979C17.7093 7.09787 17.4206 7.01085 17.1753 6.84692C16.9299 6.68296 16.7384 6.44966 16.6255 6.177C16.5126 5.90436 16.4839 5.60413 16.5415 5.3147C16.5991 5.0253 16.7411 4.75968 16.9497 4.55103C17.1584 4.34237 17.424 4.20041 17.7134 4.14282Z" fill="currentColor" stroke="currentColor" stroke-width="0.0940689"/>
+                </svg>
+                WeChat Mini Program
+              </span>
+              <span class="px-3 border border-dark rounded-full text-sm font-medium text-dark project-tag flex items-center" style="padding-top: 6px; padding-bottom: 6px; width: fit-content;">
+                <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.4685 1.7583H14.5584C14.3746 1.75817 14.1983 1.83078 14.0679 1.96027L2.25258 13.7756C1.99387 14.0356 1.84863 14.3874 1.84863 14.7542C1.84863 15.121 1.99387 15.4728 2.25258 15.7328L7.87893 21.3591C8.13891 21.6179 8.49075 21.7631 8.85753 21.7631C9.2243 21.7631 9.57614 21.6179 9.83612 21.3591L21.6466 9.54863C21.7761 9.41824 21.8488 9.24189 21.8486 9.05813V3.14325C21.8495 2.96153 21.8144 2.78143 21.7455 2.61332C21.6765 2.4452 21.5749 2.29239 21.4467 2.16367C21.3184 2.03495 21.1659 1.93287 20.998 1.8633C20.8302 1.79373 20.6502 1.75805 20.4685 1.7583Z" fill="white" stroke="currentColor" stroke-width="3.0102" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M17.7134 4.14282C18.0028 4.08525 18.303 4.11389 18.5757 4.22681C18.8483 4.33975 19.0816 4.53123 19.2456 4.77661C19.4095 5.02196 19.4966 5.31064 19.4966 5.60571C19.4966 6.00146 19.3399 6.38154 19.0601 6.66138C18.7802 6.94121 18.4001 7.0979 18.0044 7.0979C17.7093 7.09787 17.4206 7.01085 17.1753 6.84692C16.9299 6.68296 16.7384 6.44966 16.6255 6.177C16.5126 5.90436 16.4839 5.60413 16.5415 5.3147C16.5991 5.0253 16.7411 4.75968 16.9497 4.55103C17.1584 4.34237 17.424 4.20041 17.7134 4.14282Z" fill="currentColor" stroke="currentColor" stroke-width="0.0940689"/>
+                </svg>
+                AI Assistant
+              </span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider Line -->
+    <div class="max-w-7xl mx-auto px-4 mb-8">
+      <hr class="border-black w-full">
+    </div>
+
+    <!-- Project 2: Take it -->
+    <section class="max-w-7xl mx-auto px-4 mb-8 project-section" data-categories="uiux">
+      <div class="flex gap-8 items-center">
+        <!-- Left Side: Project Box (1/3) -->
+        <div class="w-1/3">
+          <div class="bg-white rounded-3xl border border-dark p-8 project-image-container" style="height: 260px;">
+            <div class="flex items-center h-full">
+              <!-- Left Half: Project Image -->
+              <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="bg-gray-200 rounded-lg p-4" style="width: 120px; height: 160px;">
+                  <div class="w-full h-full bg-gray-300 rounded-lg flex items-center justify-center">
+                    <div class="text-center">
+                      <div class="text-4xl mb-2">🛒</div>
+                      <p class="text-xs text-gray-500">项目图片</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Right Half: Project Info -->
+              <div class="w-1/2 h-full flex flex-col justify-center pl-6">
+                <span class="block font-semibold text-dark leading-none" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif; font-style: italic; font-size: 32px;">02</span>
+                <h2 class="font-bold text-dark leading-none m-0" style="font-family: 'Gilroy-SemiBold', 'Gilroy', Arial, sans-serif; font-style: italic; font-size: 32px; margin-top: 8px;">
+                  Take it
+                </h2>
+          </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Side: Content (2/3) -->
+        <div class="w-2/3 pl-8">
+          <!-- Highlighted Question -->
+          <div class="mb-6">
+            <h3 class="text-2xl font-bold text-accent mb-4" style="font-family: 'Gilroy-ExtraBoldItalic', 'Gilroy', Arial, sans-serif;">
+              A WeChat-style assistant that helps socially anxious users craft the right message — in the right tone — for the right person.
+            </h3>
+          </div>
+          
+          <!-- Project Description -->
+          <div class="mb-8">
+            <p class="text-xl text-dark leading-relaxed">
+              A conversational UI for people who struggle with social messaging
+            </p>
+          </div>
+          
+          <!-- Tags Section -->
+          <div class="mb-8">
+            <div class="flex flex-wrap gap-3">
+              <span class="px-3 border border-dark rounded-full text-sm font-medium text-dark project-tag flex items-center" style="padding-top: 6px; padding-bottom: 6px; width: fit-content;">
+                <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.4685 1.7583H14.5584C14.3746 1.75817 14.1983 1.83078 14.0679 1.96027L2.25258 13.7756C1.99387 14.0356 1.84863 14.3874 1.84863 14.7542C1.84863 15.121 1.99387 15.4728 2.25258 15.7328L7.87893 21.3591C8.13891 21.6179 8.49075 21.7631 8.85753 21.7631C9.2243 21.7631 9.57614 21.6179 9.83612 21.3591L21.6466 9.54863C21.7761 9.41824 21.8488 9.24189 21.8486 9.05813V3.14325C21.8495 2.96153 21.8144 2.78143 21.7455 2.61332C21.6765 2.4452 21.5749 2.29239 21.4467 2.16367C21.3184 2.03495 21.1659 1.93287 20.998 1.8633C20.8302 1.79373 20.6502 1.75805 20.4685 1.7583Z" fill="white" stroke="currentColor" stroke-width="3.0102" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M17.7134 4.14282C18.0028 4.08525 18.303 4.11389 18.5757 4.22681C18.8483 4.33975 19.0816 4.53123 19.2456 4.77661C19.4095 5.02196 19.4966 5.31064 19.4966 5.60571C19.4966 6.00146 19.3399 6.38154 19.0601 6.66138C18.7802 6.94121 18.4001 7.0979 18.0044 7.0979C17.7093 7.09787 17.4206 7.01085 17.1753 6.84692C16.9299 6.68296 16.7384 6.44966 16.6255 6.177C16.5126 5.90436 16.4839 5.60413 16.5415 5.3147C16.5991 5.0253 16.7411 4.75968 16.9497 4.55103C17.1584 4.34237 17.424 4.20041 17.7134 4.14282Z" fill="currentColor" stroke="currentColor" stroke-width="0.0940689"/>
+                </svg>
+                UX for Mental Health
+              </span>
+              <span class="px-3 border border-dark rounded-full text-sm font-medium text-dark project-tag flex items-center" style="padding-top: 6px; padding-bottom: 6px; width: fit-content;">
+                <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.4685 1.7583H14.5584C14.3746 1.75817 14.1983 1.83078 14.0679 1.96027L2.25258 13.7756C1.99387 14.0356 1.84863 14.3874 1.84863 14.7542C1.84863 15.121 1.99387 15.4728 2.25258 15.7328L7.87893 21.3591C8.13891 21.6179 8.49075 21.7631 8.85753 21.7631C9.2243 21.7631 9.57614 21.6179 9.83612 21.3591L21.6466 9.54863C21.7761 9.41824 21.8488 9.24189 21.8486 9.05813V3.14325C21.8495 2.96153 21.8144 2.78143 21.7455 2.61332C21.6765 2.4452 21.5749 2.29239 21.4467 2.16367C21.3184 2.03495 21.1659 1.93287 20.998 1.8633C20.8302 1.79373 20.6502 1.75805 20.4685 1.7583Z" fill="white" stroke="currentColor" stroke-width="3.0102" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M17.7134 4.14282C18.0028 4.08525 18.303 4.11389 18.5757 4.22681C18.8483 4.33975 19.0816 4.53123 19.2456 4.77661C19.4095 5.02196 19.4966 5.31064 19.4966 5.60571C19.4966 6.00146 19.3399 6.38154 19.0601 6.66138C18.7802 6.94121 18.4001 7.0979 18.0044 7.0979C17.7093 7.09787 17.4206 7.01085 17.1753 6.84692C16.9299 6.68296 16.7384 6.44966 16.6255 6.177C16.5126 5.90436 16.4839 5.60413 16.5415 5.3147C16.5991 5.0253 16.7411 4.75968 16.9497 4.55103C17.1584 4.34237 17.424 4.20041 17.7134 4.14282Z" fill="currentColor" stroke="currentColor" stroke-width="0.0940689"/>
+                </svg>
+                Emotional Interface Design
+              </span>
+              <span class="px-3 border border-dark rounded-full text-sm font-medium text-dark project-tag flex items-center" style="padding-top: 6px; padding-bottom: 6px; width: fit-content;">
+                <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.4685 1.7583H14.5584C14.3746 1.75817 14.1983 1.83078 14.0679 1.96027L2.25258 13.7756C1.99387 14.0356 1.84863 14.3874 1.84863 14.7542C1.84863 15.121 1.99387 15.4728 2.25258 15.7328L7.87893 21.3591C8.13891 21.6179 8.49075 21.7631 8.85753 21.7631C9.2243 21.7631 9.57614 21.6179 9.83612 21.3591L21.6466 9.54863C21.7761 9.41824 21.8488 9.24189 21.8486 9.05813V3.14325C21.8495 2.96153 21.8144 2.78143 21.7455 2.61332C21.6765 2.4452 21.5749 2.29239 21.4467 2.16367C21.3184 2.03495 21.1659 1.93287 20.998 1.8633C20.8302 1.79373 20.6502 1.75805 20.4685 1.7583Z" fill="white" stroke="currentColor" stroke-width="3.0102" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M17.7134 4.14282C18.0028 4.08525 18.303 4.11389 18.5757 4.22681C18.8483 4.33975 19.0816 4.53123 19.2456 4.77661C19.4095 5.02196 19.4966 5.31064 19.4966 5.60571C19.4966 6.00146 19.3399 6.38154 19.0601 6.66138C18.7802 6.94121 18.4001 7.0979 18.0044 7.0979C17.7093 7.09787 17.4206 7.01085 17.1753 6.84692C16.9299 6.68296 16.7384 6.44966 16.6255 6.177C16.5126 5.90436 16.4839 5.60413 16.5415 5.3147C16.5991 5.0253 16.7411 4.75968 16.9497 4.55103C17.1584 4.34237 17.424 4.20041 17.7134 4.14282Z" fill="currentColor" stroke="currentColor" stroke-width="0.0940689"/>
+                </svg>
+                AI-generated Replies
+              </span>
+              <span class="px-3 border border-dark rounded-full text-sm font-medium text-dark project-tag flex items-center" style="padding-top: 6px; padding-bottom: 6px; width: fit-content;">
+                <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.4685 1.7583H14.5584C14.3746 1.75817 14.1983 1.83078 14.0679 1.96027L2.25258 13.7756C1.99387 14.0356 1.84863 14.3874 1.84863 14.7542C1.84863 15.121 1.99387 15.4728 2.25258 15.7328L7.87893 21.3591C8.13891 21.6179 8.49075 21.7631 8.85753 21.7631C9.2243 21.7631 9.57614 21.6179 9.83612 21.3591L21.6466 9.54863C21.7761 9.41824 21.8488 9.24189 21.8486 9.05813V3.14325C21.8495 2.96153 21.8144 2.78143 21.7455 2.61332C21.6765 2.4452 21.5749 2.29239 21.4467 2.16367C21.3184 2.03495 21.1659 1.93287 20.998 1.8633C20.8302 1.79373 20.6502 1.75805 20.4685 1.7583Z" fill="white" stroke="currentColor" stroke-width="3.0102" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M17.7134 4.14282C18.0028 4.08525 18.303 4.11389 18.5757 4.22681C18.8483 4.33975 19.0816 4.53123 19.2456 4.77661C19.4095 5.02196 19.4966 5.31064 19.4966 5.60571C19.4966 6.00146 19.3399 6.38154 19.0601 6.66138C18.7802 6.94121 18.4001 7.0979 18.0044 7.0979C17.7093 7.09787 17.4206 7.01085 17.1753 6.84692C16.9299 6.68296 16.7384 6.44966 16.6255 6.177C16.5126 5.90436 16.4839 5.60413 16.5415 5.3147C16.5991 5.0253 16.7411 4.75968 16.9497 4.55103C17.1584 4.34237 17.424 4.20041 17.7134 4.14282Z" fill="currentColor" stroke="currentColor" stroke-width="0.0940689"/>
+                </svg>
+                Custom Personas
+              </span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider Line -->
+    <div class="max-w-7xl mx-auto px-4 mb-8 divider-line">
+      <hr class="border-black w-full">
+    </div>
+
+    <!-- Empty State for Interaction Design -->
+    <section class="max-w-7xl mx-auto px-4 mb-8 empty-state" data-categories="interaction-only" style="display: none;">
+      <div class="text-center py-20">
+        <p class="text-2xl text-gray-500 font-gilroy-light-italic">
+            
+          here yet… but something exciting is on the way.
+        </p>
+      </div>
+    </section>
+
+    <!-- Empty State for Digital Sustainability -->
+    <section class="max-w-7xl mx-auto px-4 mb-8 empty-state" data-categories="sustainability-only" style="display: none;">
+      <div class="text-center py-20">
+        <p class="text-2xl text-gray-500 font-gilroy-light-italic">
+          Nothing here yet… but something exciting is on the way.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-3 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-sm text-dark dark:text-white">© 2025 Eve Peng - made with ♥</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Navigation active state management
+    function setActiveNavItem(activeHref) {
+      const navItems = document.querySelectorAll('.nav-item');
+      
+      navItems.forEach(item => {
+        const isActive = item.getAttribute('href') === activeHref;
+        const icon = item.querySelector('svg');
+        const text = item.querySelector('span');
+        
+        if (isActive) {
+          // Active state: white background, black text (bold)
+          item.className = 'nav-item active flex items-center gap-2 bg-white rounded-full hover:scale-110 transition-transform';
+          item.style.height = '40px';
+          item.style.border = '1.5px solid white';
+          item.style.paddingLeft = '10px';
+          item.style.paddingRight = '16px';
+          icon.className = 'w-5 h-5 text-black';
+          text.className = 'text-base font-bold text-black';
+        } else {
+          // Inactive state: black background, white text
+          item.className = 'nav-item flex items-center gap-2 bg-black rounded-full hover:scale-110 transition-transform';
+          item.style.height = '40px';
+          item.style.border = '1.5px solid white';
+          item.style.paddingLeft = '10px';
+          item.style.paddingRight = '16px';
+          icon.className = 'w-5 h-5 text-white';
+          text.className = 'text-base font-medium text-white';
+        }
+      });
+    }
+    
+    // Set active state for Work page
+    setActiveNavItem('work.html');
+
+    
+    // Add click handlers for navigation items
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        setActiveNavItem(href);
+      });
+    });
+
+    // Project filtering functionality
+    const filterCategories = document.querySelectorAll('.filter-category');
+    const projectSections = document.querySelectorAll('.project-section');
+    const emptyStates = document.querySelectorAll('.empty-state');
+    const dividerLines = document.querySelectorAll('.divider-line');
+    const categoryTitles = {
+      'all': 'All Projects',
+      'uiux': 'UI/UX Design',
+      'interaction': 'Interaction Design',
+      'sustainability': 'Digital Sustainability'
+    };
+
+    filterCategories.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active button
+        filterCategories.forEach(b => {
+          b.classList.remove('active');
+        });
+        btn.classList.add('active');
+
+        // Filter projects
+        const filter = btn.dataset.filter;
+        projectSections.forEach(section => {
+          const categories = section.dataset.categories;
+          
+          if (filter === 'all' || categories.includes(filter)) {
+            section.style.display = 'block';
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            
+            // Animate in
+            setTimeout(() => {
+              section.style.opacity = '1';
+              section.style.transform = 'translateY(0)';
+            }, 100);
+          } else {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+              section.style.display = 'none';
+            }, 300);
+          }
+        });
+
+        // Filter empty states (only show for specific categories, not 'all')
+        let hasEmptyState = false;
+        emptyStates.forEach(section => {
+          const categories = section.dataset.categories;
+          let shouldShow = false;
+          
+          if (filter === 'interaction' && categories.includes('interaction-only')) {
+            shouldShow = true;
+            hasEmptyState = true;
+          } else if (filter === 'sustainability' && categories.includes('sustainability-only')) {
+            shouldShow = true;
+            hasEmptyState = true;
+          }
+          
+          if (shouldShow) {
+            section.style.display = 'block';
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+          } else {
+            section.style.display = 'none';
+            section.style.opacity = '0';
+          }
+        });
+
+        // Hide divider lines when showing empty states
+        dividerLines.forEach(divider => {
+          if (hasEmptyState) {
+            divider.style.display = 'none';
+          } else {
+            divider.style.display = 'block';
+          }
+        });
+      });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe project sections for animation
+    document.querySelectorAll('.project-section').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(20px)';
+      section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(section);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Check for URL parameters and set initial filter
+    function initializeFilter() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const filterParam = urlParams.get('filter');
+      
+      if (filterParam && ['all', 'uiux', 'interaction', 'sustainability'].includes(filterParam)) {
+        // Find and click the corresponding filter button
+        const targetButton = document.querySelector(`[data-filter="${filterParam}"]`);
+        if (targetButton) {
+          targetButton.click();
+        }
+      }
+    }
+
+    // Initialize filter on page load
+    initializeFilter();
+  </script>
+</body>
+</html>
